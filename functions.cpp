@@ -25,12 +25,12 @@ namespace Functions
         }
         return 0;
     }
-    void Format_Input(ifstream& InFile, const int& text_width, vector<Functions::my_string>& lines){
+    void Format_Input(ifstream& InFile, const unsigned int& text_width, vector<Functions::my_string>& lines){
         assert(InFile.is_open()); // check a valid open input file.
         Functions::my_string incoming; // used for read in and out going text
         Functions::my_string housing; // houses intermediate my_string
         unsigned place = 0; // Keeps track of the character number
-        int width = text_width; // width is a modifiable text_width, to increase the char read loop by one if the first is a space
+        unsigned int width = text_width; // width is a modifiable text_width, to increase the char read loop by one if the first is a space
         bool first = true; // Keeps track if the character is the first on the line (to eliminate a first char space)
         housing.reserve(1000); // reserves space to prevent re-sizing
         incoming.reserve(1000); // reserves space to prevent resize
