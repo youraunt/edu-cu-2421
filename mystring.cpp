@@ -18,7 +18,7 @@
 #include "mystring.h"
 using namespace std;
 
-namespace Functions
+namespace HW3
 {
 
 // CONSTRUCTORS and DESTRUCTOR

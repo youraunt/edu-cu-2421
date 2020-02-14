@@ -90,7 +90,7 @@
 
 #include <cstdlib>  // Provides size_t
 
-namespace Functions {
+namespace HW3 {
 
     class my_string {
     public:
