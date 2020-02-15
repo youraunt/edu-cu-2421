@@ -14,22 +14,22 @@ using namespace std;
 
 class Functions {
 private:
-     static HW3::my_string ordinal;
+    static HW3::my_string ordinal;
 
 public:
 
-   // ifstream Open_Input(int &exist_test, char **filename);
+    // ifstream Open_Input(int &exist_test, char **filename);
 
     static int setNumberOfColumns();
 
-    static void formatText(ifstream &infile, const unsigned int &text_width, vector<HW3::my_string> &lines);
+    static void formatText(ifstream &infile, const unsigned int &width, vector<HW3::my_string> &lines);
 
     static void display(vector<HW3::my_string> &text);
 
     static void toFile(vector<HW3::my_string> &text);
 
     /// @brief Exits program successfully with message
-    inline static std::string exitProgram() {
+    static inline std::string exitProgram() {
         std::cout << "Exiting program!" << std::endl;
         /// @brief I used EXIT_SUCCESS here to unwind the stack
         exit(EXIT_SUCCESS);
@@ -39,7 +39,9 @@ public:
         std::cerr << "\nError?! Unknown input.\n" << std::endl;
         exitProgram();
     }
+
     static int loopProgram();
+
     static inline void fileNotFound() {
         std::cerr << "File not found!" << std::endl
                   << "Exiting Program!" << std::endl;

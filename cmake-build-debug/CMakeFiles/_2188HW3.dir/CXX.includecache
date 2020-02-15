@@ -28,18 +28,6 @@ iostream
 mystring.h
 /Users/bkallen/Desktop/gDriveDB/2020/Spring/CSCI-2421 Data Structures/_2188HW3/mystring.h
 
-/Users/bkallen/Desktop/gDriveDB/2020/Spring/CSCI-2421 Data Structures/_2188HW3/main.cpp
-iostream
--
-fstream
--
-vector
--
-mystring.h
-/Users/bkallen/Desktop/gDriveDB/2020/Spring/CSCI-2421 Data Structures/_2188HW3/mystring.h
-functions.h
-/Users/bkallen/Desktop/gDriveDB/2020/Spring/CSCI-2421 Data Structures/_2188HW3/functions.h
-
 /Users/bkallen/Desktop/gDriveDB/2020/Spring/CSCI-2421 Data Structures/_2188HW3/mystring.h
 cstdlib
 -
