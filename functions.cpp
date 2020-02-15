@@ -21,16 +21,16 @@ void Functions::display(vector<HW3::my_string> &text) {
 /// @brief
 /// @param text
 void Functions::toFile(vector<HW3::my_string> &text) {
-    ofstream outfile("../output.txt"); // open file for output, erases and data.out that exists
+    ofstream outfile("../output.txt");
     if (!outfile.is_open()) {
-        cout << "output.txt did not open\n";
+        Functions::fileNotFound();
         return;
     }
-    for (const auto &i : text) { // send output to file
+    for (const auto &i : text) {
         outfile << i;
         outfile << endl;
     }
-    outfile.close(); // close file
+    outfile.close();
 }
 
 /// @brief
@@ -38,7 +38,7 @@ void Functions::toFile(vector<HW3::my_string> &text) {
 /// @param text_width
 /// @param lines
 void Functions::formatText(ifstream &infile, const unsigned int &text_width, vector<HW3::my_string> &lines) {
-    assert(infile.is_open()); // check a valid open input file.
+
     HW3::my_string incoming; // used for read in and out going text
     HW3::my_string housing; // houses intermediate my_string
     unsigned place = 0; // Keeps track of the character number
@@ -46,7 +46,7 @@ void Functions::formatText(ifstream &infile, const unsigned int &text_width, vec
     bool first = true; // Keeps track if the character is the first on the line (to eliminate a first char space)
     housing.reserve(1024); // reserves space to prevent re-sizing
     incoming.reserve(1024); // reserves space to prevent resize
-    for (int i = 0; !infile.eof(); i++) {
+    for (int i = 0; infile.peek() != EOF; i++) {
         getline(infile, incoming);
         housing += incoming + " ";
     }
@@ -77,10 +77,10 @@ void Functions::formatText(ifstream &infile, const unsigned int &text_width, vec
 int Functions::setNumberOfColumns() {
     int input;
     while (true) {
-        std::cout << "This program lets you select the width of text by column number. " << std::endl
+        std::cout << "\nThis program lets you select the width of text by column number. " << std::endl
                   << "How many columns wide would you like your text to be \x1b[30;42m?\x1b[0m" << std::endl
                   << "For reference, the above highlighted question mark is 55 columns wide." << std::endl
-                  << "> ";
+                  << "\x1b[32m>\x1b[0m";
         std::cin >> input;
         if (input > 0) {
             return input;
@@ -92,14 +92,12 @@ int Functions::setNumberOfColumns() {
     }///#while
 }///#setNumberOfColumns
 
+int Functions::loopProgram() {
+    std::cout << "\nAnother width? (y/n)" << std::endl;
+    std::cout << "\x1b[32m>\x1b[0m";
+    char userInput;
 
-/// @brief sets the ordinal of k
-/// @param userInput integer value of k
-/// @return string value of matching ordinal
-//HW3::my_string Functions::setOrdinal(int userInput) {
-//    ordinal = userInput % 100 == 1 ? "st"
-//            : userInput % 100 == 2 ? "nd"
-//            : userInput % 100 == 3 ? "rd"
-//            : "th";
-//    return ordinal;
-//}///#setOrdinal
+    std::cin >> userInput;
+    int userInputCap = toupper(userInput);
+    return userInputCap;
+}

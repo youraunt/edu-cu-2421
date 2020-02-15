@@ -28,8 +28,6 @@ public:
 
     static void toFile(vector<HW3::my_string> &text);
 
-    static HW3::my_string setOrdinal(int userInput);
-
     /// @brief Exits program successfully with message
     inline static std::string exitProgram() {
         std::cout << "Exiting program!" << std::endl;
@@ -40,6 +38,13 @@ public:
     static void unknownInput() {
         std::cerr << "\nError?! Unknown input.\n" << std::endl;
         exitProgram();
+    }
+    static int loopProgram();
+    static inline void fileNotFound() {
+        std::cerr << "File not found!" << std::endl
+                  << "Exiting Program!" << std::endl;
+        /// @brief winds down stack
+        exit(EXIT_FAILURE);
     }
 };
 
