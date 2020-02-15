@@ -2,10 +2,7 @@
 // Created by BK Allen on 2/13/20.
 //
 
-#include <iostream>
-#include <vector>
-#include <cassert>
-#include <fstream>
+
 #include "functions.h"
 #include "mystring.h"
 
@@ -35,42 +32,48 @@ void Functions::toFile(vector<HW3::my_string> &text) {
 /// @brief This function formats the text to the users desired width by column value.
 /// @param infile file stream
 /// @param width
-/// @param lines
-void Functions::formatText(ifstream &infile, const unsigned int &width, vector<HW3::my_string> &lines) {
-
-    HW3::my_string iOString; // used for read in and out going text
-    iOString.reserve(1024); // reserves space to prevent resize
-    HW3::my_string tempString; // houses intermediate my_string
-    tempString.reserve(1024); // reserves space to prevent re-sizing
-    unsigned place = 0; // Keeps track of the character number
-    unsigned int _width = width; // _width is a modifiable width, to increase the char read loop by one if the first is a space
-    bool first = true; // Keeps track if the character is the first on the line (to eliminate a first char space)
-
-    for (int i = 0; infile.peek() != EOF; i++) {
+/// @param line
+HW3::my_string Functions::processInput(ifstream &infile, vector<HW3::my_string> &line, const unsigned int &width) {
+    /// @brief declare local variable and allocate 128 bytes for each char array
+    HW3::my_string iOString = "\0";
+    iOString.reserve(1024);
+    HW3::my_string tempString = "\0";
+    tempString.reserve(1024);
+    auto charNumber = 0;
+    auto _width = width;
+    auto first = true;
+    /// @brief Reads in from file to iOString then concatenates with space into tempString
+    for (auto i = 0; infile.peek() != EOF; i++) {
         getline(infile, iOString);
         tempString += iOString + " ";
     }
-    iOString = "";
 
-    while (place < tempString.length() - 1) {
-        for (int loop = 0;
-                 loop < _width && place < tempString.length() - 1;
-                 loop++) { //for loop control lines written to vector.
-            if (first && tempString[place] == ' ') { _width++; } // determines if the character is first on a line and also a space, if so increase the _width and skip the write.
-            else { iOString += tempString[place]; }
-            first = false;// set first = false, as we are through the loop once
-            ++place; // increment the place in the original string regardless of space status.
+    /// @brief clears ioString or sets to "\0" ie NULL
+    iOString = "\0";
+    /// @brief formats data to user specified with
+    /// @brief using _width so I can alter the width for blank chars at head of line
+    while (charNumber < tempString.length() - 1) {
+        for (auto loop = 0; loop < _width && charNumber < tempString.length() - 1; loop++) {
+            ///@brief This prevents writing whitespace unnecessarily
+            if (first && tempString[charNumber] == ' ') { _width++; }
+            else { iOString += tempString[charNumber]; }
+            /// @brief exit one loop
+            first = false;
+            ++charNumber;
         }
-        if (tempString[place - 1] != ' ' &&
-            tempString[place - 1] != '.') { // if the word is running over the line then add a -
+        /// @brief adds the '-' hyphen if the word is running over
+        if (tempString[charNumber - 1] != ' '
+        &&  tempString[charNumber - 1] != '.') {
             iOString += "-";
         }
-        lines.push_back(iOString); // push into the vector the completely formatted line
-        iOString = "";
+        /// @brief to vector
+        line.push_back(iOString);
+        iOString = "\0";
         _width = width;
         first = true;
-    }
-}
+    }///#while
+    return "\0";
+}///#processInput
 
 /// @brief This function handles user input
 /// in regards to the number of columns.

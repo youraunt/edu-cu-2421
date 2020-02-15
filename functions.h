@@ -6,6 +6,7 @@
 #define _2188HW3_FUNCTIONS_H
 
 
+#include <fstream>
 #include <vector>
 #include <iostream>
 #include "mystring.h"
@@ -22,7 +23,7 @@ public:
 
     static int setNumberOfColumns();
 
-    static void formatText(ifstream &infile, const unsigned int &width, vector<HW3::my_string> &lines);
+    static HW3::my_string(processInput(ifstream &infile, vector<HW3::my_string> &line, const unsigned int &width));
 
     static void display(vector<HW3::my_string> &text);
 

@@ -32,7 +32,7 @@ int main() {
             /// @brief Sets up the number of columns the user prefers. Must be positive integer.
             numberOfColumns = Functions::setNumberOfColumns();
             /// @brief Calls function to format the file text to desired width.
-            Functions::formatText(infile, numberOfColumns, formattedText);
+            Functions::processInput(infile, formattedText, numberOfColumns);
             /// @brief A function to display formatted text to screen.
             Functions::display(formattedText);
             /// @brief Writes out to file.
