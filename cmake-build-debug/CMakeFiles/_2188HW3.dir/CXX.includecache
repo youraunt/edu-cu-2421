@@ -6,12 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/Users/bkallen/Desktop/gDriveDB/2020/Spring/CSCI-2421 Data Structures/_2188HW3/functions.cpp
-functions.h
-/Users/bkallen/Desktop/gDriveDB/2020/Spring/CSCI-2421 Data Structures/_2188HW3/functions.h
-mystring.h
-/Users/bkallen/Desktop/gDriveDB/2020/Spring/CSCI-2421 Data Structures/_2188HW3/mystring.h
-
 /Users/bkallen/Desktop/gDriveDB/2020/Spring/CSCI-2421 Data Structures/_2188HW3/functions.h
 fstream
 -
@@ -21,6 +15,16 @@ iostream
 -
 mystring.h
 /Users/bkallen/Desktop/gDriveDB/2020/Spring/CSCI-2421 Data Structures/_2188HW3/mystring.h
+
+/Users/bkallen/Desktop/gDriveDB/2020/Spring/CSCI-2421 Data Structures/_2188HW3/main.cpp
+iostream
+-
+vector
+-
+mystring.h
+/Users/bkallen/Desktop/gDriveDB/2020/Spring/CSCI-2421 Data Structures/_2188HW3/mystring.h
+functions.h
+/Users/bkallen/Desktop/gDriveDB/2020/Spring/CSCI-2421 Data Structures/_2188HW3/functions.h
 
 /Users/bkallen/Desktop/gDriveDB/2020/Spring/CSCI-2421 Data Structures/_2188HW3/mystring.h
 cstdlib

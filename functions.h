@@ -17,7 +17,6 @@ private:
 
 public:
 
-    // ifstream Open_Input(int &exist_test, char **filename);
 
     static int setNumberOfColumns();
 

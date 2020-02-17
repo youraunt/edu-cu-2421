@@ -1,7 +1,12 @@
-
-
+/*******************************************************
+*  Name         : Brice Allen
+*  Student ID   : 107452188
+*  Class        : CSC 2421
+*  HW#          : 3
+*  Due Date     : 11:59 PM Feb. 17, 2020
+*  File Name    : 2188HW3
+*******************************************************/
 #include <iostream>
-#include <fstream>
 #include <vector>
 #include "mystring.h"
 #include "functions.h"
