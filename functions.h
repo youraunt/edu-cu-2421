@@ -1,5 +1,8 @@
 //
 // Created by BK Allen on 2/13/20.
+// This file holds the prototypes for
+// functions used in the program
+// see implementation file for comments
 //
 
 #ifndef _2188HW3_FUNCTIONS_H
@@ -20,7 +23,8 @@ public:
 
     static int setNumberOfColumns();
 
-    static HW3::my_string(processInput(std::istream &infile,std::vector<HW3::my_string> &line, const unsigned int &width));
+    static HW3::my_string
+    (processInput(std::istream &infile, std::vector<HW3::my_string> &line, const unsigned int &width));
 
     static void display(std::vector<HW3::my_string> &text);
 

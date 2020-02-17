@@ -19,7 +19,7 @@ void Functions::display(std::vector<HW3::my_string> &text) {
 /// @brief This function writes the formatted text to the file "output.dat"
 /// @param text pre-processed data
 void Functions::toFile(std::vector<HW3::my_string> &text) {
-    std::ofstream outfile("../output.dat");
+    std::ofstream outfile("output.dat");
     if (!outfile.is_open()) {
         Functions::fileNotFound();
     }
@@ -31,8 +31,8 @@ void Functions::toFile(std::vector<HW3::my_string> &text) {
 
 /// @brief This function formats the text to the users desired width by column value.
 /// @param infile file stream
-/// @param width
-/// @param line
+/// @param width The number of columns to format to
+/// @param line Vector to hold the data
 HW3::my_string
 Functions::processInput(std::istream &infile, std::vector<HW3::my_string> &line, const unsigned int &width) {
     /// @brief declare local variable and allocate 128 bytes for each char array
@@ -98,8 +98,9 @@ int Functions::setNumberOfColumns() {
     }///#while
 }///#setNumberOfColumns
 
-/// @brief
-/// @return
+/// @brief This function checks to see if the user wants to
+///     format the text to another width.
+/// @return capitalized user input
 int Functions::loopProgram() {
     std::cout << "\nAnother width? (y/n)" << std::endl;
     std::cout << "\x1b[32m>\x1b[0m";
