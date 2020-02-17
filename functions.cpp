@@ -8,18 +8,18 @@
 
 /// @brief This function displays the formatted text to the screen.
 /// @param text pre-processed data
-void Functions::display(vector<HW3::my_string> &text) {
+void Functions::display(std::vector<HW3::my_string> &text) {
     /// @brief readability
     std::cout << std::endl;
     for (const auto &i : text) {
-        cout << i << endl;
+        std::cout << i << std::endl;
     }
 }
 
 /// @brief This function writes the formatted text to the file "output.dat"
 /// @param text pre-processed data
-void Functions::toFile(vector<HW3::my_string> &text) {
-    ofstream outfile("../output.dat");
+void Functions::toFile(std::vector<HW3::my_string> &text) {
+    std::ofstream outfile("../output.dat");
     if (!outfile.is_open()) {
         Functions::fileNotFound();
     }
@@ -33,7 +33,8 @@ void Functions::toFile(vector<HW3::my_string> &text) {
 /// @param infile file stream
 /// @param width
 /// @param line
-HW3::my_string Functions::processInput(ifstream &infile, vector<HW3::my_string> &line, const unsigned int &width) {
+HW3::my_string
+Functions::processInput(std::istream &infile, std::vector<HW3::my_string> &line, const unsigned int &width) {
     /// @brief declare local variable and allocate 128 bytes for each char array
     HW3::my_string iOString = "\0";
     iOString.reserve(1024);
@@ -47,7 +48,6 @@ HW3::my_string Functions::processInput(ifstream &infile, vector<HW3::my_string> 
         getline(infile, iOString);
         tempString += iOString + " ";
     }
-
     /// @brief clears ioString or sets to "\0" ie NULL
     iOString = "\0";
     /// @brief formats data to user specified with
@@ -62,10 +62,12 @@ HW3::my_string Functions::processInput(ifstream &infile, vector<HW3::my_string> 
             ++charNumber;
         }
         /// @brief adds the '-' hyphen if the word is running over
-        if (tempString[charNumber - 1] != ' '
-        &&  tempString[charNumber - 1] != '.') {
+        if (tempString[charNumber - 1] != '.'
+            && tempString[charNumber - 1] != ' '
+            && tempString[charNumber] != EOF) {
             iOString += "-";
         }
+
         /// @brief to vector
         line.push_back(iOString);
         iOString = "\0";

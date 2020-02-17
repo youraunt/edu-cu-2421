@@ -257,7 +257,7 @@ namespace HW3
         while (ins && isspace(ins.peek()))
             ins.ignore();
         target=""; // Set the target to the empty string.
-        while (ins && !isspace(ins.peek()))
+        while (ins && !isspace(ins.peek())&&!ins.eof())
         {
             ins >> c;
             target += c; // Call the operator += with a char argument.

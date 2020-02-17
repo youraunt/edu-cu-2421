@@ -11,8 +11,6 @@
 #include <iostream>
 #include "mystring.h"
 
-using namespace std;
-
 class Functions {
 private:
     static HW3::my_string ordinal;
@@ -23,11 +21,11 @@ public:
 
     static int setNumberOfColumns();
 
-    static HW3::my_string(processInput(ifstream &infile, vector<HW3::my_string> &line, const unsigned int &width));
+    static HW3::my_string(processInput(std::istream &infile,std::vector<HW3::my_string> &line, const unsigned int &width));
 
-    static void display(vector<HW3::my_string> &text);
+    static void display(std::vector<HW3::my_string> &text);
 
-    static void toFile(vector<HW3::my_string> &text);
+    static void toFile(std::vector<HW3::my_string> &text);
 
     /// @brief Exits program successfully with message
     static inline std::string exitProgram() {

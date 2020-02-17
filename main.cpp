@@ -22,10 +22,10 @@ int main() {
             /// flag here, is a bitmask value of iostate
             std::cin.exceptions(std::istream::failbit);
             /// @brief declare variables,vector, and file stream.
-            vector<HW3::my_string> formattedText;
+            std::vector<HW3::my_string> formattedText;
             unsigned int numberOfColumns;
             char inputFile[32] = "../input.dat";
-            ifstream infile(inputFile);
+            std::ifstream infile(inputFile);
             /// @brief This checks to for a working file stream.
             /// @brief Exits program if files stream is not working.
             if (!infile || infile.fail()) { Functions::fileNotFound(); }
@@ -37,11 +37,15 @@ int main() {
             Functions::display(formattedText);
             /// @brief Writes out to file.
             Functions::toFile(formattedText);
+            /// @brief ask user if they want to format the text to a different width
             int anotherRound = Functions::loopProgram();
+            /// @brief if y is entered loop program
+            /// @brief y is capitalized by the loopProgram function.
             if (anotherRound != 'Y') Functions::exitProgram();
             infile.close();
         }
-    } catch (const std::exception &) {
+    } catch (const std::exception &exc) {
+        std::cerr << exc.what() << std::endl;
         Functions::unknownInput();
     }///#catch
 }
