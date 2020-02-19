@@ -30,7 +30,7 @@ int main() {
             std::vector<HW3::my_string> formattedText;
             unsigned int numberOfColumns;
             /// @brief I could not figure out how to use mystring here??
-            char inputFile[32] = "input.dat";
+            char inputFile[32] = "../input.dat";
             std::ifstream infile(inputFile);
             /// @brief This checks to for a working file stream.
             /// @brief Exits program if files stream is not working.

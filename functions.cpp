@@ -19,7 +19,7 @@ void Functions::display(std::vector<HW3::my_string> &text) {
 /// @brief This function writes the formatted text to the file "output.dat"
 /// @param text pre-processed data
 void Functions::toFile(std::vector<HW3::my_string> &text) {
-    std::ofstream outfile("output.dat");
+    std::ofstream outfile("../output.dat");
     if (!outfile.is_open()) {
         Functions::fileNotFound();
     }
@@ -64,7 +64,7 @@ Functions::processInput(std::istream &infile, std::vector<HW3::my_string> &line,
         /// @brief adds the '-' hyphen if the word is running over
         if (tempString[charNumber - 1] != '.'
             && tempString[charNumber - 1] != ' '
-            && tempString[charNumber] != EOF) {
+            && charNumber != tempString.length()-1) {
             iOString += "-";
         }
 
